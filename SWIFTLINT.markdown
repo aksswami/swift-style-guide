@@ -170,3 +170,7 @@ Occasionally, you'll find it necessary to include an unmodified open-source file
 While SwiftLint goes a long way towards making your source code compliant with our style guide, it doesn't cover everything. For example, it won't catch or force you to correct the formatting for multi-condition `guard` statements. (See [Golden Path](https://github.com/aksswami/swift-style-guide#golden-path) for correct formatting.)
 
 This configuration has been tested against several dozen of our most recent tutorials. A couple of rules, such as the line length limit or the limit on the length of a function, may need tweaking to fit our style. If you find yourself butting heads with SwiftLint, please reach out to the iOS Team Lead with details.
+
+## AutoCorrect
+
+If you are running swift-lint on existing project which have too many warning, you can run `swiftlint autocorrect` command to fix the linter errors.
