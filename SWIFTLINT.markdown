@@ -1,6 +1,6 @@
 # The Official raywenderlich.com SwiftLint Policy
 
-The SwiftLint configuration in this repo is designed to ensure the work we create at raywenderlich.com conforms with [The Official raywenderlich.com Swift Style Guide](https://github.com/raywenderlich/swift-style-guide).
+The SwiftLint configuration in this repo is designed to ensure the work we create at raywenderlich.com conforms with [The Official raywenderlich.com Swift Style Guide](https://github.com/aksswami/swift-style-guide).
 
 The focus of this style is to improve readability in our print and web publications. Therefore, this style may be different from others you've been used to, but the demands of print and online reading are different than other contexts.
 
@@ -39,7 +39,7 @@ If you are unable to use Homebrew, you may use one of the other methods describe
 
 **Do not** place the configuration file inside your project. We don't want to impose this style on readers without their express knowledge or understanding of what's going on. 
 
-Download **com.raywenderlich.swiftlint.yml** from the [Swift Style Guide repo](https://github.com/raywenderlich/swift-style-guide) and place it your home directory: **~/com.raywenderlich.swiftlint.yml**.
+Download **swiftlint.yml** from the [Swift Style Guide repo](https://github.com/aksswami/swift-style-guide) and place it your home directory: **~/swiftlint.yml**.
 
 ## Xcode settings
 
@@ -67,11 +67,14 @@ To simplify the process for everyone in the content pipeline, you'll need to add
 6. Add the following script:
 ```
 PATH=/opt/homebrew/bin:$PATH
-if [ -f ~/com.raywenderlich.swiftlint.yml ]; then
+if [ -f ./swiftlint.yml ]; then
   if which swiftlint >/dev/null; then
-    swiftlint --no-cache --config ~/com.raywenderlich.swiftlint.yml
+    swiftlint --no-cache --config ./swiftlint.yml
+  else
+    echo "warning: SwiftLint not installed, download from https://github.com/realm/SwiftLint"
   fi
 fi
+
 ```
 
 ## Handling rule exceptions
@@ -164,6 +167,6 @@ Occasionally, you'll find it necessary to include an unmodified open-source file
 
 ## Other notes
 
-While SwiftLint goes a long way towards making your source code compliant with our style guide, it doesn't cover everything. For example, it won't catch or force you to correct the formatting for multi-condition `guard` statements. (See [Golden Path](https://github.com/raywenderlich/swift-style-guide#golden-path) for correct formatting.)
+While SwiftLint goes a long way towards making your source code compliant with our style guide, it doesn't cover everything. For example, it won't catch or force you to correct the formatting for multi-condition `guard` statements. (See [Golden Path](https://github.com/aksswami/swift-style-guide#golden-path) for correct formatting.)
 
 This configuration has been tested against several dozen of our most recent tutorials. A couple of rules, such as the line length limit or the limit on the length of a function, may need tweaking to fit our style. If you find yourself butting heads with SwiftLint, please reach out to the iOS Team Lead with details.
